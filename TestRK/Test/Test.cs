@@ -36,10 +36,13 @@ namespace TestRK.Test
         [Test]
         public void Keses2()
         {
-
             test.UjJarat("1548", "Budapest", "Cyprus", new DateTime(2019, 3, 30, 4, 05, 0));
-            test.Keses("1548", -30);
-            Assert.AreEqual(new DateTime(2019, 3, 30, 3, 35, 0), test.MikorIndul("1548"));
+            Assert.Throws<JaratKezelo.NegativKesesException>(
+                () =>
+                {
+                    test.Keses("1548", -30);
+                }
+            );
         }
 
         [Test]
@@ -51,6 +54,8 @@ namespace TestRK.Test
             test.Keses("1548", -10);
             Assert.AreEqual(new DateTime(2019, 3, 30, 4, 35, 0), test.MikorIndul("1548"));
         }
+
+        
 
 
     }

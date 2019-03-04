@@ -109,7 +109,7 @@ namespace TestRK
         }
 
         [Serializable()]
-        class NegativKesesException : Exception
+        public class NegativKesesException : Exception
         {
             
             public NegativKesesException(string message, System.Exception inner) : base(message, inner) { }
